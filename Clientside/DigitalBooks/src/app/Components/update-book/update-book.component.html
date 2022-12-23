@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" ref="update-book.component.css">
+    <title>Document</title>
+</head>
+ <body>  
+    <div class="content">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="title" class="form-label">Logo</label>
+            <input type="text"   [(ngModel)]="book.logo"  class="form-control" id="logo" name="logo">
+          </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text"   [(ngModel)]="book.title"  class="form-control" id="title" name="title" >
+           </div>
+            <div class="mb-3">
+              <label for="category" class="form-label">Category</label>
+              <input type="text" [(ngModel)]="book.category"  class="form-control" id="category" name="category">
+            </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" [(ngModel)]="book.price"class="form-control" id="price" name="price">
+              </div>
+              <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text"  [(ngModel)]="book.author"class="form-control" id="author" name="author">
+              </div>
+              <div class="mb-3">
+                <label for="publisher" class="form-label">Publisher</label>
+                <input type="text" [(ngModel)]="book.publisher"class="form-control" id="publisher" name="publisher"> 
+              </div>
+              <div class="mb-3">
+                <label for="publishedDate" class="form-label">Published Date</label>
+                <input type="text" [(ngModel)]="book.publishedDate"class="form-control" id="publishedDate" name="publishedDate">
+              </div>
+              <div class="mb-3">
+                <label for="chapter" class="form-label">Chapter</label>
+                <input type="number" [(ngModel)]="book.chapter" class="form-control" id="chapter" name="chapter">
+              </div>
+              <div class="mb-3">
+                <label for="active" class="form-label">Active</label>
+                <input type="text" [(ngModel)]="book.active"class="form-control" id="active" name="active">
+              </div>
+             
+    
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          </div>
+</body>
+</html>

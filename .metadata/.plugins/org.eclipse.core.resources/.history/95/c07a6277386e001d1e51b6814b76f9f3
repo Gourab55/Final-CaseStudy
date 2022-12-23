@@ -1,0 +1,30 @@
+package com.book.LoanService;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.book.entity.LoanData;
+
+@Service
+public class LoanService {
+	
+	@Autowired
+	ILoanRepo iloanRepo;
+	
+	
+	public LoanData createLoan(LoanData loan) {
+		return iloanRepo.save(loan);
+		
+	}
+	
+	public List<LoanData> getAllLoans(){
+		
+		
+		
+		return iloanRepo.findAll();;
+	}
+	
+
+}

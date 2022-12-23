@@ -1,0 +1,41 @@
+<div class="container">
+<h2>Book List</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Logo</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Published Date</th>
+            <th>Chapter</th>
+            <th>Active</th>
+            <th>Action</th>
+        
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of books">
+            <td>{{b.logo}}</td>
+            <td>{{b.title}}</td>
+            <td>{{b.category}}</td>
+            <td>{{b.price}}</td>
+            <td>{{b.author}}</td>
+            <td>{{b.publisher}}</td>
+            <td>{{b.publishedDate}}</td>
+            <td>{{b.chapter}}</td>
+            <td>{{b.active}}</td>
+            <td>
+                <button (click)="updateBook(b.id)" class="btn btn-primary">Update</button>
+                <button (click)="deleteBook(b.id)" class="btn btn-danger" style="margin-left:10px">Delete</button>
+            </td>
+
+
+        </tr>
+    </tbody>
+
+</table>
+</div>

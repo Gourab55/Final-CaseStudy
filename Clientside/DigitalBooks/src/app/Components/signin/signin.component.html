@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="signin.component.css">
+</head>
+<body>
+  
+  
+  <form class="box" (ngSubmit)="onSubmit()" >
+
+    <h3>Log In</h3>
+    <input type="text"  placeholder="Enter Username" id="uname"  name="uname" [(ngModel)]="user.username" >
+    <input type="password"  placeholder="Enter Password" id="pwd" name="password"  [(ngModel)]="user.password" >
+    <input type="submit" name="" value="Login">
+    
+  </form>
+
+    
+</body>
+</html>

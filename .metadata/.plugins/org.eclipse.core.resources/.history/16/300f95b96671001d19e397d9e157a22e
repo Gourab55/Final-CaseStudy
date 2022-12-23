@@ -1,0 +1,105 @@
+package com.book.LoanService;
+
+import java.util.List;
+
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+
+import com.book.entity.Loan;
+import com.book.exception.ResourceNotFoundException;
+
+@Service
+public class LoanService {
+	
+	@Autowired
+	ILoanRepo iloanRepo;
+	
+	
+	public Loan createLoan(Loan loan) {
+		return iloanRepo.save(loan);
+		
+	}
+	
+	public List<Loan> getAllLoans(){
+		
+		
+		
+		return iloanRepo.findAll();
+	}
+	
+	public Loan GetBook(Integer id) {
+		Loan ExistingLoan=iloanRepo.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("LoanData","id",id));
+		return ExistingLoan;
+	}
+	
+	public Loan UpdateLoan(Loan loan, Integer id) {
+		// we will check a book is exist or not 
+		
+		Loan ExistingLoan=iloanRepo.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("LoanData","id",id));
+		
+		
+		ExistingLoan.setFastname(loan.getFastname());
+	   
+		ExistingLoan.setLastname(loan.getLastname());
+	
+	ExistingLoan.setLoanno(loan.getLoanno());
+	ExistingLoan.setProperty_add(loan.getProperty_add());
+	ExistingLoan.setLoan_amount(loan.getLoan_amount());
+	ExistingLoan.setLoan_type(loan.getLoan_type());
+	ExistingLoan.setLoan_term(loan.getLoan_term());
+	
+	
+	Loan updateLoan=iloanRepo.save(ExistingLoan);
+	
+	return updateLoan;
+	
+	}
+	
+	public List<Loan> getLoansBySearch(String fastname, String lastname, Integer loanno) {
+	 
+		
+//		List<LoanData> allLoans= iloanRepo.findAll();
+		
+//		if(fastname!=null && lastname!= null  && loanNo!= null) {
+//			allLoans=allLoans.stream()
+//					.filter(bo -> bo.getFastname().equals(fastname))
+//					.filter(bo -> bo.getLastname().equals(lastname))
+//					.filter(bo -> bo.getLoanno() <= loanNo)
+//					.collect(Collectors.toList());
+//		}
+//		System.out.println("Search Results"+ allLoans);
+//		return allLoans;
+		System.out.println("outside fast name"+fastname);
+		
+//		if(fastname !=null)
+//		{
+//			System.out.println("inside fast name"+fastname);
+//			List<Loan> loan=iloanRepo.findByFastname(fastname);
+//			System.out.println(loan.get(0));
+//			return loan;
+//			
+//		}
+//		if(lastname !=null)
+//		{
+//			List<Loan> loan=iloanRepo.findByLastname(lastname);
+//			return loan;
+//			
+//		}
+//		
+//		if(loanno !=null)
+//		{
+//			List<Loan> loan=iloanRepo.findByLoanno(loanno);
+//			return loan;
+//		}
+		
+		return null;
+		
+		
+	}
+
+}

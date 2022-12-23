@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .allcontent {
+        background-color: azure;
+        width: 500px;
+        padding: 50px;
+        margin: 50px auto;
+        box-shadow: 0 0 7px 2px rgba(0, 0, 0, 4);
+    }
+</style>
+
+<body>
+
+
+
+    <div class="allcontent">
+   
+    <form (ngSubmit)="onSubmit()">
+        <h3 style="text-align:center;">Search Books</h3>
+
+        <div class="content1" style="margin-bottom: 20px;margin-top: 20px;">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="title" class="col-form-label">Title</label>
+                </div>
+                <div class="col-auto" style="margin-left: 67px;">
+                    <input type="text" id="title" class="form-control" [(ngModel)]="book.title"     
+                    name="title" placeholder="Enter title" />
+                </div>
+            </div>
+
+        </div>
+        <div class="content1" style="margin-bottom: 20px;">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="author" class="col-form-label">Author</label>
+                </div>
+                <div class="col-auto" style="margin-left: 50px;">
+                    <input type="text" id="author" class="form-control" [(ngModel)]="book.author" 
+                    placeholder="Enter author name" name="author">
+                </div>
+            </div>
+
+        </div>
+        <div class="content1" style="margin-bottom: 20px;">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="publisher" class="col-form-label">Publisher</label>
+                </div>
+                <div class="col-auto" style="margin-left: 35px;">
+                    <input type="text" id="publisher" class="form-control" [(ngModel)]="book.publisher"
+                    placeholder="Enter publisher name" name="publisher">
+                </div>
+            </div>
+
+        </div>
+        <div class="content1" style="margin-bottom: 20px;">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="rdate" class="col-form-label"> Price</label>
+                </div>
+                <div class="col-auto" style="margin-left: 65px;">
+                    <input type="number" id="rdate" class="form-control" [(ngModel)]="book.price"
+                    placeholder="Enter released date" name="price">
+                </div>
+          </div>
+
+        </div>
+        <input class="btn btn-outline-primary" type="submit" style="margin-left: 150px; margin-top: 20px;"
+                    value="Search">
+    </form>
+  
+    </div>
+
+    <div class="container">
+        <h2>Book List</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Logo</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Author</th>
+                    <th>Publisher</th>
+                    <th>Published Date</th>
+                    <th>Chapter</th>
+                    <th>Active</th>
+                 
+                
+        
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let b of books">
+                    <td>{{b.logo}}</td>
+                    <td>{{b.title}}</td>
+                    <td>{{b.category}}</td>
+                    <td>{{b.price}}</td>
+                    <td>{{b.author}}</td>
+                    <td>{{b.publisher}}</td>
+                    <td>{{b.publishedDate}}</td>
+                    <td>{{b.chapter}}</td>
+                    <td>{{b.active}}</td>
+                  
+        
+        
+                </tr>
+            </tbody>
+        
+        </table>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+package com.book.LoanService;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.book.entity.LoanData;
+
+@Repository
+public interface ILoanRepo extends JpaRepository<LoanData, Integer> {
+	
+	@Query( "select u from LoanData u where u.fastname =:fastname")
+	List<LoanData> findByFastname(String fastname);
+
+	List<LoanData> findByLastname(String lastname);
+
+	List<LoanData> findByLoanno(Integer loanno);
+
+	
+	
+}

@@ -1,0 +1,66 @@
+package com.book.LoanService;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.book.entity.Book;
+import com.book.entity.LoanData;
+import com.book.exception.ResourceNotFoundException;
+
+@Service
+public class LoanService {
+	
+	@Autowired
+	ILoanRepo iloanRepo;
+	
+	
+	public LoanData createLoan(LoanData loan) {
+		return iloanRepo.save(loan);
+		
+	}
+	
+	public List<LoanData> getAllLoans(){
+		
+		
+		
+		return iloanRepo.findAll();
+	}
+	
+	public LoanData GetBook(Integer id) {
+		LoanData ExistingLoan=iloanRepo.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("LoanData","id",id));
+		return ExistingLoan;
+	}
+	@Override
+	public Book UpdateLoan(LoanData loan, Integer id) {
+		// we will check a book is exist or not 
+		
+		LoanData ExistingLoan=iloanRepo.findById(id).orElseThrow(
+				() -> new ResourceNotFoundException("LoanData","id",id));
+		
+		
+		ExistingLoan.setFastname(loan.getFastname());
+	   
+		ExistingLoan.setLastname(loan.getLastname());
+	
+	ExistingLoan.setLoanNo(loan.getLoanNo());
+	ExistingLoan.setProperty_add(loan.getProperty_add());
+	ExistingLoan.setLoan_amount(loan.getLoan_amount());
+	ExistingLoan.setLoan_type(loan.getLoan_type());
+	ExistingLoan.setLoan_term(loan.getLoan_term());
+	
+	
+
+	
+	
+	LoanData updateLoan=iloanRepo.save(ExistingLoan);
+	
+	return updateLoan;
+	
+		
+	}
+
+}
